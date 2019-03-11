@@ -17,7 +17,7 @@
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/conversations/:id', function(request, response) {
+app.get('/conversations', function(request, response) {
 	getConversations(request, response);
 });
 
@@ -27,7 +27,7 @@ app.listen(port, function() {
 });
 
 function getConversations(request, response) {
-	var id = request.params.id;
+	var id = request.query.id;
 
 
 	getConversationsFromDb(id, function(error, result) {
