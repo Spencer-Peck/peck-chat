@@ -37,7 +37,7 @@ function getConversations(request, response) {
 
 
 
-	    response.status(200).json(result[0]);
+	    response.status(200).json(result);
 
 
 	});
