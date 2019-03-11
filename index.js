@@ -33,6 +33,10 @@ function getConversations(request, response) {
 	getConversationsFromDb(id, function(error, result) {
 
 		var conversations = result;
+
+
+
+
 	    response.status(200).json(result);
 
 
@@ -49,6 +53,7 @@ function getConversationsFromDb(id, callback) {
 	var params = [id];
 
 	pool.query(sql, params, function(err, result) {
+		done()
 		// If an error occurred...
 		if (err) {
 			console.log("Error in query: ")
