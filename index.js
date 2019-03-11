@@ -26,7 +26,7 @@ app.listen(port, function() {
   console.log('Node app is running on port', port);
 });
 
-function getPerson(request, response) {
+function getConversations(request, response) {
 	var id = request.query.id;
 
 
@@ -39,7 +39,7 @@ function getPerson(request, response) {
 	});
 }
 
-function getPersonFromDb(id, callback) {
+function getConversationsFromDb(id, callback) {
 	var sql = "SELECT id, first, last, birthdate FROM person WHERE id = $1::int";
 	var sql = "SSELECT conversations.id, auth_user.messages_read_at < messages.created_at AS has_unread_messages, messages.id, messages.content, messages.created_at,";
 	sql += "messages.user_id = 7 AS mine, other_users.id, other_users.first_name, other_users.avatar_url FROM conversations INNER JOIN messages ON conversations.last_message_id = messages.id";
