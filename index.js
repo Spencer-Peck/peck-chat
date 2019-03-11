@@ -57,7 +57,7 @@ function getConversationsFromDb(id, callback) {
 		}
 
 		console.log("Found result: " + JSON.stringify(result.rows));
-		callback(null, result.rows[0]);
+		callback(null, result.rows);
 	});
 }
 
