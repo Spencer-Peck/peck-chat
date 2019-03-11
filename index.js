@@ -37,7 +37,7 @@ function getPerson(request, response) {
 
 
 	});
-};
+}
 
 function getPersonFromDb(id, callback) {
 	var sql = "SELECT id, first, last, birthdate FROM person WHERE id = $1::int";
@@ -60,4 +60,5 @@ function getPersonFromDb(id, callback) {
 		console.log("Found result: " + JSON.stringify(result.rows));
 		callback(null, result.rows);
 	});
+}
 
