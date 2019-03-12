@@ -6,7 +6,6 @@
   const { Pool } = require("pg");
 
   const connectionString = process.env.DATABASE_URL || "postgres://peckchatuser:teampeck@localhost:5432/PeckChat";
-  const pool = new Pool({connectionString: connectionString});
 
 
   const port = process.env.PORT || 5000;
@@ -51,17 +50,19 @@ function getConversationsFromDb(id, callback) {
 	sql +=	" AND auth_user.user_id = $1::int ORDER BY messages.created_at DESC;";
 
 	var params = [id];
-
+	const pool = new Pool({connectionString: connectionString});
 	pool.query(sql, params, function(err, result) {
 
 		// If an error occurred...
 		if (err) {
 			console.log("Error in query: ")
 			console.log(err);
+			pool.end();
 			callback(err, null);
 		}
 
 		console.log("Found result: " + JSON.stringify(result.rows));
+		pool.end();
 		callback(null, result.rows);
 	});
 }
