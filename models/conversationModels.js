@@ -18,12 +18,12 @@ function getConversationsFromDb(id, callback) {
 		if (err) {
 			console.log("Error in query: ")
 			console.log(err);
-			pool.end();
+			//pool.end();
 			callback(err, null);
 		}
 
 		console.log("Found result: " + JSON.stringify(result.rows));
-		pool.end();
+		//pool.end();
 		callback(null, result.rows);
 	});
 }
