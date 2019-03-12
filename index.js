@@ -4,7 +4,7 @@
 
   const conversationController = require("./controllers/conversationController.js");
 
-  const app = express();
+  var app = express();
 
 
   const port = process.env.PORT || 5000;
@@ -17,7 +17,7 @@
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/conversations', conversationController.getConversations);
+app.get("/conversations", conversationController.getConversations);
 
 // start the server listening
 app.listen(port, function() {
