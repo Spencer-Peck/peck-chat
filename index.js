@@ -52,9 +52,9 @@ function getConversationsFromDb(id, callback) {
 
 	var params = [id];
 
-	const client = await pool.connect();
+	const client = pool.connect();
 
-	await client.query(sql, params, function(err, result) {
+	client.query(sql, params, function(err, result) {
 
 		// If an error occurred...
 		if (err) {
