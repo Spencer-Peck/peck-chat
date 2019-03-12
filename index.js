@@ -1,6 +1,7 @@
 
   const express = require('express');
   const path = require('path');
+  require('dotenv').config();
 
   const conversationController = require("./controllers/conversationController.js");
 
@@ -17,9 +18,7 @@
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/conversations', function(request, response) {
-	conversationController.getConversations(request, response);
-});
+app.get('/conversations', conversationController.getConversations);
 
 // start the server listening
 app.listen(port, function() {
