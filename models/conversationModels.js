@@ -1,3 +1,9 @@
+  const { Pool } = require("pg");
+
+  const connectionString = process.env.DATABASE_URL || "postgres://peckchatuser:teampeck@localhost:5432/PeckChat";
+  const pool = new Pool({connectionString: connectionString});
+
+
 function getConversationsFromDb(id, callback) {
 	var sql = " SELECT conversations.id AS conversation_id, messages.user_id AS last_message_owner_id, auth_user.messages_read_at < messages.created_at AS has_unread_messages, messages.id, messages.content, messages.created_at,";
 	sql += " messages.user_id = $1::int AS mine, other_users.id, other_users.first_name, other_users.avatar_url FROM conversations INNER JOIN messages ON conversations.last_message_id = messages.id";
@@ -6,7 +12,6 @@ function getConversationsFromDb(id, callback) {
 	sql +=	" AND auth_user.user_id = $1::int ORDER BY messages.created_at DESC;";
 
 	var params = [id];
-	const pool = new Pool({connectionString: connectionString});
 	pool.query(sql, params, function(err, result) {
 
 		// If an error occurred...
