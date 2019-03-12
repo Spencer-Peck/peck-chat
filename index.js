@@ -60,12 +60,12 @@ function getConversationsFromDb(id, callback) {
 		if (err) {
 			console.log("Error in query: ")
 			console.log(err);
-			client.release()
+			client.release();
 			callback(err, null);
 		}
 
 		console.log("Found result: " + JSON.stringify(result.rows));
-		client.release()
+		client.release();
 		callback(null, result.rows);
 	});
 }
