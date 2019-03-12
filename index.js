@@ -7,11 +7,6 @@
   const app = express();
 
 
-  const { Pool } = require("pg");
-
-  const connectionString = process.env.DATABASE_URL || "postgres://peckchatuser:teampeck@localhost:5432/PeckChat";
-
-
   const port = process.env.PORT || 5000;
 
   app.use(express.static(__dirname + '/public'));
