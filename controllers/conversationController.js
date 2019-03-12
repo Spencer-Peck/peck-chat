@@ -1,8 +1,9 @@
-const conversationModels = ("../models/conversationModels.js");
+const conversationModels = ("../model/conversationModels.js");
 
 
 function getConversations(request, response) {
 	var id = request.query.id;
+	console.log("We have mad it to the controller");
 
 
 	conversationModels.getConversationsFromDb(id, function(error, result) {
