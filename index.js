@@ -52,20 +52,16 @@ function getConversationsFromDb(id, callback) {
 
 	var params = [id];
 
-	const client = pool.connect();
-
-	client.query(sql, params, function(err, result) {
+	pool.query(sql, params, function(err, result) {
 
 		// If an error occurred...
 		if (err) {
 			console.log("Error in query: ")
 			console.log(err);
-			client.release();
 			callback(err, null);
 		}
 
 		console.log("Found result: " + JSON.stringify(result.rows));
-		client.release();
 		callback(null, result.rows);
 	});
 }
