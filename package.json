@@ -1,17 +1,16 @@
 {
   "name": "peck-messenger",
   "version": "1.0.0",
-  "description": "A messaging app",
+  "description": " messenger app",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "test"
   },
   "author": "Spencer Peck",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
-    "pg": "^7.7.1"
+    "pg": "^7.8.2"
   }
 }
