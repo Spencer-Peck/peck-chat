@@ -37,7 +37,7 @@ function getConversations(request, response) {
 
 
 
-	    response.status(200).json(result);
+	    response.status(200).json(result[0]);
 
 
 	});
@@ -52,18 +52,20 @@ function getConversationsFromDb(id, callback) {
 
 	var params = [id];
 
-	pool.query(sql, params, function(err, result) {
+	const client = await pool.connect();
+
+	await client.query(sql, params, function(err, result) {
 
 		// If an error occurred...
 		if (err) {
 			console.log("Error in query: ")
 			console.log(err);
-			pool.end();
+			client.release()
 			callback(err, null);
 		}
 
 		console.log("Found result: " + JSON.stringify(result.rows));
-		pool.end();
+		client.release()
 		callback(null, result.rows);
 	});
 }
