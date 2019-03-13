@@ -1,6 +1,7 @@
 const express = require("express");
 const socketIO = require('socket.io');
 const path = require("path");
+var appDir = path.dirname(require.main.filename);
 require('dotenv').config();
 
 const conversationController = require("./controllers/conversationController.js");
@@ -24,7 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/serverData', (req, res) => {
-	console.log('Getting server data...');
+	console.log(appDir);
 	var data = {PORT: PORT};
 	res.send(data);
 	//res.json();
