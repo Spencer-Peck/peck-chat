@@ -7,14 +7,14 @@ function getConversations(request, response) {
 
 
 	conversationModels.getConversationsFromDb(id, function(error, result) {
-	
+
 
 		var conversations = result;
 
 
 
 
-	    response.status(200).json(result[0]);
+	    response.status(200).json(result);
 
 
 	});
