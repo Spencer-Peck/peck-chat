@@ -20,9 +20,16 @@ app.set('view engine', 'ejs');
 app.get("/conversations", conversationController.getConversations);
 
 // start the server listening
-app.listen(PORT, function() {
+server = app.listen(PORT, function() {
   console.log('Node app is running on porty', PORT);
 });
 
+const io = require("socket.io")(server);
 
+io.on('connection', (socket) => {
+	console.log('New user connected');
+
+});
+
+//Server connections
 
