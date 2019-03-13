@@ -9,7 +9,7 @@ function addConversationtion(conversation){
    }
 
 function getConversations(){
-	$.get('/conversations', (data) => {
+	$.get('/conversations?id=9', (data) => {
 		data.forEach(addConversation);
 	});
 }
