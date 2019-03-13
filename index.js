@@ -24,13 +24,6 @@ app.get('/', (req, res) => {
 	res.render('chat_portal');
 });
 
-app.get('/serverData', (req, res) => {
-	console.log(appDir);
-	var data = {PORT: PORT};
-	res.send(data);
-	//res.json();
-});
-
 app.get("/conversations", conversationController.getConversations);
 
 // start the server listening
