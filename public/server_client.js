@@ -11,8 +11,10 @@ $(function(){
 	//make connection
 	//var socket = io.();
 
+	var socket = io();
+	socket.connect('https://tranquil-rocky-mountain-92476.herokuapp.com/', { autoConnect: true});
 
-	var socket = io.connect('https://tranquil-rocky-mountain-92476.herokuapp.com:' + PORT);
+	//var socket = io.connect('https://tranquil-rocky-mountain-92476.herokuapp.com:' + PORT);
 
 	socket.on("update_conversations", (data) => {
 		//chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>");
