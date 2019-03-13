@@ -26,7 +26,7 @@ $(function(){
 
 	socket.on("update_conversations", (data) => {
 		//chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>");
-		$.get('/conversations', (data) => {
+		$.get('/conversations?id=9', (data) => {
 			data.forEach(addMessages);
 		});
 	});
