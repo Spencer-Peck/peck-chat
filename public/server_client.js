@@ -10,7 +10,7 @@ function addConversation(conversation){
 
 function getConversations(){
 	$.get('/conversations?id=9', (data) => {
-		data.forEach(addConversation);
+		data.each(addConversation);
 	});
 }
 
@@ -27,7 +27,7 @@ $(function(){
 	socket.on("update_conversations", (data) => {
 		//chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>");
 		$.get('/conversations?id=9', (data) => {
-			data.forEach(addMessages);
+			data.each(addMessages);
 		});
 	});
 
