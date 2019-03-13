@@ -25,7 +25,8 @@ app.get('/', (req, res) => {
 
 app.get('/serverData', (req, res) => {
 	console.log(window.location.host);
-	//var data = {}
+	var data = {PORT: PORT};
+	res.send(data);
 	//res.json();
 });
 
