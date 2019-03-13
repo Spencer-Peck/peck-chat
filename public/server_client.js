@@ -5,7 +5,7 @@ function setup(){
 		PORT = data;
 		console.log(data);
 	});
-	getConversations();
+	getConversations;
 }
 
 function addConversationtion(conversation){
