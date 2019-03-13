@@ -3,6 +3,7 @@ var PORT;
 function setup(){
 	$.get('/serverData', (data) => {
 		PORT = data;
+		console.log(data);
 	});
 }
 
