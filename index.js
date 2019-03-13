@@ -1,4 +1,5 @@
 const express = require("express");
+const socketIO = require('socket.io');
 const path = require("path");
 require('dotenv').config();
 
@@ -17,6 +18,17 @@ app.use(express.urlencoded({extended: true})); // support url encoded bodies
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+app.get('/', (req, res) => {
+	//res.write("Hello world");
+	res.render('chat_portal');
+});
+
+app.get('/serverData', (req, res) => {
+	console.log(window.location.host);
+	//var data = {}
+	//res.json();
+});
+
 app.get("/conversations", conversationController.getConversations);
 
 // start the server listening
@@ -24,10 +36,14 @@ server = app.listen(PORT, function() {
   console.log('Node app is running on porty', PORT);
 });
 
-const io = require("socket.io")(server);
+
+const io = socketIO(server);
 
 io.on('connection', (socket) => {
 	console.log('New user connected');
+});
+io.on('connect_failed', function(){
+    console.log('Connection Failed');
 });
 
 //Server connections

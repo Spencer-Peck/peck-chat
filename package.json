@@ -9,12 +9,11 @@
   "author": "Spencer Peck",
   "license": "ISC",
   "dependencies": {
-    "bufferutil": "4.0.1",
     "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "pg": "^7.8.2",
     "socket.io": "^2.2.0",
-    "utf-8-validate": "5.0.2",
-    "ws": "6.2.0"
+    "utf-8-validate": "5.0.2"
   }
 }
