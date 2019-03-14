@@ -9,7 +9,7 @@ function getConversations(request, response) {
 	conversationModels.getConversationsFromDb(id, function(error, result) {
 
 
-		var conversations = JSON.parse(result);
+		var conversations = (result);
 		//var dateFormat = require('dateformat');
 
 
