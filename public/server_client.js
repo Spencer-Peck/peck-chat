@@ -27,9 +27,13 @@ function getConversations(){
 		//	addConversation(data.list[i]);
 		//}
 
-		$.each(data, function(i, item) {
-			addConversation(item);
-		});
+		//$.each(data, function(i, item) {
+			//addConversation(item);
+		//});
+		for (i in data){
+			addConversation(i);
+		}
+		
 	});
 }
 
