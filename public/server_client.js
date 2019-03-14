@@ -5,6 +5,7 @@ function setup(){
 }
 
 function addConversation(conversation){
+	console.log("made it here");
    $("#chat_list").append('<div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt="Spencer"> </div><h5>'+conversation.first_name+'<span class="chat_date"></span></h5><p>'+conversation.content+'</p></div></div>');
    }
 
