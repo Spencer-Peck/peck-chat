@@ -15,7 +15,7 @@ function addConversation(conversation){
 	}
 	//var dateFormat = require('dateformat');
 	//var date = dateFormat(conversation.created_at, "mmmm, dddd");
-	date = conversation.created_at;
+	date = "";
 
 	$("#inbox_chat").append('<div class="chat_list"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
 }
