@@ -1,4 +1,5 @@
 const conversationModels = require("../models/conversationModels.js");
+var dateFormat = require('dateformat');
 
 
 function getConversations(request, response) {
@@ -9,10 +10,19 @@ function getConversations(request, response) {
 	conversationModels.getConversationsFromDb(id, function(error, result) {
 
 
-		var conversations = result;
+		var conversations = JSON.parse(result);
+
+		$.each(conversations, function(i, item) {
+			item.created_at = dateFormat(item.created_at, "mmmm dS, dddd");
+		});
+
+
+
+
+
 		console.log(result);
 
-	    response.json(result);
+	    response.json();
 
 
 	});
