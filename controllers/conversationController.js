@@ -12,7 +12,7 @@ function getConversations(request, response) {
 		var conversations = result;
 		console.log(result);
 
-	    response.status(200).json(result);
+	    response.json(result);
 
 
 	});

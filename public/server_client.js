@@ -1,4 +1,5 @@
 
+
 var PORT;
 function setup(){
 	getConversations();
@@ -6,7 +7,7 @@ function setup(){
 
 function addConversation(conversation){
 	console.log("made it here");
-   $("#chat_list").append('<div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt="Spencer"> </div><h5>'+conversation.first_name+'<span class="chat_date"></span></h5><p>'+conversation.content+'</p></div></div>');
+   $("#inbox_chat").append('<div class="chat_list"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt="Spencer"> </div><h5>'+conversation.first_name+'<span class="chat_date"></span></h5><p>'+conversation.content+'</p></div></div></div>');
    }
 
 function getConversations(){
