@@ -10,7 +10,7 @@ function addConversation(conversation){
 	console.log("made it here");
 	if (conversation.avatar_url == null)
 	{
-		conversation.avatar_url = "https://ptetutorials.com/images/user-profile.png";
+		conversation.avatar_url = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
 		console.log("avatar is null");
 	}
 	//var dateFormat = require('dateformat');
