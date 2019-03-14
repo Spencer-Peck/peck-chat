@@ -8,7 +8,10 @@ function setup(){
 function addConversation(conversation){
 	console.log("made it here");
 	if (conversation.avatar_url == null)
+	{
 		avatar_url = "https://ptetutorials.com/images/user-profile.png";
+		console.log("avatar is null");
+	}
    $("#inbox_chat").append('<div class="chat_list"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><h5>'+conversation.first_name+'<span class="chat_date"></span></h5><p>'+conversation.content+'</p></div></div></div>');
    }
 
