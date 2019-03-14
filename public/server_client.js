@@ -31,7 +31,7 @@ function getConversations(){
 			//addConversation(item);
 		//});
 		for (i in data){
-			addConversation(i);
+			addConversation(data[i]);
 		}
 
 	});
