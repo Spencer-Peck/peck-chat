@@ -7,7 +7,7 @@ function setup(){
 
 
 function addConversation(conversation){
-	console.log("made it here");
+	console.log(conversation);
 	if (conversation.avatar_url == null)
 	{
 		conversation.avatar_url = "https://connect.protel.net/files/Source/demodashboard/dist/img/def_face.jpg";
@@ -33,7 +33,7 @@ function getConversations(){
 		for (i in data){
 			addConversation(i);
 		}
-		
+
 	});
 }
 
