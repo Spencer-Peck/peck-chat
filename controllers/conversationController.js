@@ -15,7 +15,7 @@ function getConversations(request, response) {
 
 		console.log(result);
 
-	    response.json();
+	    response.json(result);
 
 	});
 }
