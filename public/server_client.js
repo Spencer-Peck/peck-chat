@@ -22,7 +22,7 @@ function addConversation(conversation){
    }
 
 function getConversations(){
-	$.getJSON('/conversations?id=9', function(data) {
+	$.get('/conversations?id=9', function(data) {
 
 		//for (var i = 0; i < data.list.length; i++){
 		//	addConversation(data.list[i]);
