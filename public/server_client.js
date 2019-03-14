@@ -5,19 +5,6 @@ function setup(){
 	getConversations();
 }
 
-function getMonthName(date) {
-	  var monthNames = [
-    "January", "February", "March",
-    "April", "May", "June", "July",
-    "August", "September", "October",
-    "November", "December"
-  ];
-
-  var day = date.getDate();
-  var monthIndex = date.getMonth();
-
-  return monthNames[monthIndex] + ' ' + day;
-}
 
 function addConversation(conversation){
 	console.log("made it here");
@@ -26,7 +13,8 @@ function addConversation(conversation){
 		conversation.avatar_url = "https://ptetutorials.com/images/user-profile.png";
 		console.log("avatar is null");
 	}
-	var date = getMonthName(conversation.created_at);
+	var dateFormat = require('dateformat');
+	var date = dateFormat(conversation.created_at, "mmmm, dddd");
 
 
    $("#inbox_chat").append('<div class="chat_list"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
