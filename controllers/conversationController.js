@@ -12,15 +12,6 @@ function getConversations(request, response) {
 		var conversations = JSON.parse(result);
 		//var dateFormat = require('dateformat');
 
-		$.each(conversations, function(i, item) {
-		//	item.created_at = dateFormat(item.created_at, "mmmm dS, dddd");
-		if (item.avatar_url == null)
-		{
-			item.avatar_url = "https://ptetutorials.com/images/user-profile.png";
-			console.log("avatar is null");
-		}
-	});
-
 
 		console.log(result);
 
