@@ -11,8 +11,10 @@ function addConversation(conversation){
 function getConversations(){
 	$.get('/conversations?id=9', function(data) {
 
-		for (var i = 0; i < data.list.length; i++){
-			addConversation(data.list[i]);
+		var cons = JSON.parse(data);
+
+		for (var i = 0; i < cons.list.length; i++){
+			addConversation(cons.list[i]);
 		}
 	});
 }
