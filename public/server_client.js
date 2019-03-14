@@ -9,13 +9,15 @@ function addConversation(conversation){
    }
 
 function getConversations(){
-	$.get('/conversations?id=9', function(data) {
+	$.getJSON('/conversations?id=9', function(data) {
 
-		var cons = JSON.parse(data);
+		//for (var i = 0; i < data.list.length; i++){
+		//	addConversation(data.list[i]);
+		//}
 
-		for (var i = 0; i < cons.list.length; i++){
-			addConversation(cons.list[i]);
-		}
+		$.each(data, function(i, item) {
+			addConversation(item);
+		});
 	});
 }
 
