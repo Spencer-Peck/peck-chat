@@ -14,7 +14,7 @@ function addConversation(conversation){
 		console.log("avatar is null");
 	}
 	var names = "";
-	$.get('/conversationNames?id=9&conversation_id='+conversation.conversation_id, function(data){
+	$.get('/conversationNames?user_id=9&conversation_id='+conversation.conversation_id, function(data){
 
 
 		for (i in data){
