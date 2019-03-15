@@ -13,6 +13,14 @@ function addConversation(conversation){
 		conversation.avatar_url = "https://connect.protel.net/files/Source/demodashboard/dist/img/def_face.jpg";
 		console.log("avatar is null");
 	}
+	$.get('/conversationNames?id=9'+ , function(data) {
+
+		for (i in data){
+			addConversation(data[i]);
+		}
+
+	});
+
 	//var dateFormat = require('dateformat');
 	//var date = dateFormat(conversation.created_at, "mmmm, dddd");
 	date = "";
@@ -22,8 +30,6 @@ function addConversation(conversation){
 
 function getConversations(){
 	$.get('/conversations?id=9', function(data) {
-
-		//$.get('/')
 
 		for (i in data){
 			addConversation(data[i]);
