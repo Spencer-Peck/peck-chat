@@ -18,7 +18,7 @@ function addConversation(conversation){
 
 
 		for (i in data){
-			names += ' ' + data.first_name + ",";
+			names += ' ' + data[i].first_name + ",";
 		}
 		names = names.slice(0, -1);
 		console.log(names);
