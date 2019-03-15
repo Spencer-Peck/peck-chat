@@ -21,6 +21,7 @@ function addConversation(conversation){
 			names += ' ' + data.first_name + ",";
 		}
 		names = names.slice(0, -1);
+		console.log(names);
 
 	});
 
