@@ -28,7 +28,30 @@ function getConversationsFromDb(id, callback) {
 	});
 }
 
+function getConversationNamesFromDb(user_id, conversation_id, callback) {
+		var sql = "SELECT  DISTINCT users.first_name, users.id FROM conversations, participants, users WHERE participants.conversation_id = $2::int"
+		sql += " AND users.id = participants.user_id AND users.id != $1::int";
+
+	var params = [user_id, conversation_id];
+	pool.query(sql, params, function(err, result) {
+
+		// If an error occurred...
+		if (err) {
+			console.log("Error in query: ")
+			console.log(err);
+			//pool.end();
+			callback(err, null);
+		}
+
+		console.log("Found result: " + JSON.stringify(result.rows));
+		//pool.end();
+		callback(null, result.rows);
+	});
+
+}
+
 
 module.exports = {
-	getConversationsFromDb: getConversationsFromDb
+	getConversationsFromDb: getConversationsFromDb,
+	getConversationNamesFromDb: getConversationNamesFromDb
 };

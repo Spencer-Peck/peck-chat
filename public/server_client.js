@@ -23,13 +23,8 @@ function addConversation(conversation){
 function getConversations(){
 	$.get('/conversations?id=9', function(data) {
 
-		//for (var i = 0; i < data.list.length; i++){
-		//	addConversation(data.list[i]);
-		//}
+		//$.get('/')
 
-		//$.each(data, function(i, item) {
-			//addConversation(item);
-		//});
 		for (i in data){
 			addConversation(data[i]);
 		}

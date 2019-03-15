@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.get("/conversations", conversationController.getConversations);
+app.get("/conversationNames", conversationController.getConversationNames);
 
 // start the server listening
 server = app.listen(PORT, function() {

@@ -18,8 +18,38 @@ function getConversations(request, response) {
 	    response.json(result);
 
 	});
+
+
 }
 
+function getConversationNames(request, response) {
+	var user_id = request.query.user_id;
+	var conversation_id = request.query.conversation_id;
+	console.log("Getting conversation names...");
+
+
+	conversationModels.getConversationNamesFromDb(user_id, conversation_id, function(error, result) {
+
+
+		var conversations = (result);
+		//var dateFormat = require('dateformat');
+
+
+		console.log(result);
+
+	    response.json(result);
+
+	});
+
+
+}
+
+
+
+
+
+
 module.exports = {
-	getConversations: getConversations
+	getConversations: getConversations,
+	getConversationNames: getConversationNames
 };
