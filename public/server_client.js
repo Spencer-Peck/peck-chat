@@ -53,7 +53,7 @@ function addMessage(message){
 
 
 function getMessages(conversation_id){
-	$.get('/messages?id=9&con_id='+conversation_id, function(data) {
+	$.get('/messages?id=9&con_id='+4 function(data) {
 
 		for (i in data){
 			addMessage(data[i]);
