@@ -40,7 +40,7 @@ function addMessage(message){
 	var messageHTML;
 	var time = "11:01 AM    |    June 9";
 
-	if (message.mine){
+	if (!message.mine){
 		messageHTML = '<div class="incoming_msg"><div class="incoming_msg_img"><img src="'+message.avatar_url+'" alt="Spencer"></div>';
         messageHTML += '<div class="received_msg"><div class="received_withd_msg"><span class="time_date">'+message.first_name+'</span><p>'+message.content+'</p>';
         messageHTML += '<span class="time_date">'+time+'</span></div></div></div>';
