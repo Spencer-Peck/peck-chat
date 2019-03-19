@@ -13,18 +13,9 @@ function addConversation(conversation){
 		conversation.avatar_url = "https://connect.protel.net/files/Source/demodashboard/dist/img/def_face.jpg";
 		console.log("avatar is null");
 	}
-	var names = "";
-	$.get('/conversationNames?user_id=9&conversation_id='+conversation.conversation_id+'&other_id='+conversation.id, function(data){
+	
+	$("#inbox_chat").append('<div class="chat_list"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+ " " + conversation.last_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
 
-
-		for (i in data){
-			names += ' ' + data[i].first_name + ",";
-		}
-		names = names.slice(0, -1);
-		console.log(names);
-		$("#inbox_chat").append('<div class="chat_list"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+ " " + conversation.last_name+',' + names +'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
-
-	});
 
 	//var dateFormat = require('dateformat');
 	//var date = dateFormat(conversation.created_at, "mmmm, dddd");
