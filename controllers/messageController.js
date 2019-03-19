@@ -1,4 +1,4 @@
-const conversationModels = require("../models/messageModels.js");
+const messageModels = require("../models/messageModels.js");
 
 function getMessages(request, response) {
 	var id = request.query.id;
