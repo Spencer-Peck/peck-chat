@@ -13,13 +13,13 @@ function addConversation(conversation){
 		conversation.avatar_url = "https://connect.protel.net/files/Source/demodashboard/dist/img/def_face.jpg";
 		console.log("avatar is null");
 	}
+	date = "";
 	
 	$("#inbox_chat").append('<div class="chat_list"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+ " " + conversation.last_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
 
 
 	//var dateFormat = require('dateformat');
 	//var date = dateFormat(conversation.created_at, "mmmm, dddd");
-	date = "";
 
 	
 }
