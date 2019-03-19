@@ -3,6 +3,7 @@
 var PORT;
 function setup(){
 	getConversations();
+	getMessages();
 }
 
 
@@ -18,10 +19,6 @@ function addConversation(conversation){
 	$("#inbox_chat").append('<div class="chat_list"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+ " " + conversation.last_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
 
 
-	//var dateFormat = require('dateformat');
-	//var date = dateFormat(conversation.created_at, "mmmm, dddd");
-
-	
 }
 
 function getConversations(){
@@ -29,6 +26,37 @@ function getConversations(){
 
 		for (i in data){
 			addConversation(data[i]);
+		}
+
+	});
+}
+
+
+function addMessage(message){
+	var messageHTML;
+	var time = "11:01 AM    |    June 9";
+
+	if (message.mine){
+		messageHTML = '<div class="incoming_msg"><div class="incoming_msg_img"><img src="'+message.avatar_url+'" alt="Spencer"></div>';
+        messageHTML += '<div class="received_msg"><div class="received_withd_msg"><span class="time_date">'+message.first_name+'</span><p>'+message.content+'</p>';
+        messageHTML += '<span class="time_date">'+time+'</span></div></div></div>';
+    }
+    else {
+    	messageHTML = '<div class="outgoing_msg"><div class="sent_msg"><p>'+message.content+'</p><span class="time_date">'+time+'</span> </div></div>';
+    }
+
+
+	$("#inbox_chat").append(messageHTML);
+
+
+}
+
+
+function getMessages(conversation_id){
+	$.get('/messages?id=9&con_id='+conversation_id, function(data) {
+
+		for (i in data){
+			addMessage(data[i]);
 		}
 
 	});
