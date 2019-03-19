@@ -2,9 +2,10 @@ const conversationModels = require("../models/messageModels.js");
 
 function getMessages(request, response) {
 	var id = request.query.id;
+	var con_id = request.query.con_id;
 
 
-	messageModels.getMessagesFromDb(id, function(error, result) {
+	messageModels.getMessagesFromDb(id, con_id, function(error, result) {
 
 
 		var messages = (result);

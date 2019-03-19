@@ -4,7 +4,7 @@
   const pool = new Pool({connectionString: connectionString});
 
 
-  function getMessagesFromDb(id, con_id callback) {
+  function getMessagesFromDb(id, con_id, callback) {
 	var sql = "SELECT DISTINCT messages.user_id = $1::int AS mine, users.first_name, messages.created_at, messages.content FROM conversations";
     sql += " INNER JOIN participants ON participants.conversation_id = $2::int INNER JOIN users ON users.id = participants.user_id";
 	sql += " INNER JOIN messages ON messages.user_id = users.id ORDER BY messages.created_at;";
