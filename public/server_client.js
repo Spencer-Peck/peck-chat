@@ -3,7 +3,7 @@
 var PORT;
 function setup(){
 	getConversations();
-	getMessages();
+	//getMessages();
 }
 
 
@@ -16,7 +16,7 @@ function addConversation(conversation){
 	}
 	date = "";
 	
-	$("#inbox_chat").append('<div class="chat_list"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+ " " + conversation.last_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
+	$("#inbox_chat").append('<div class="chat_list" onclick="addMessage('+conversation.conversation_id+')"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+ " " + conversation.last_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
 
 
 }
