@@ -49,8 +49,10 @@ function addMessage(message){
     	messageHTML = '<div class="outgoing_msg"><div class="sent_msg"><p>'+message.content+'</p><span class="time_date">'+time+'</span> </div></div>';
     }
 
+    return messageHTML;
 
-	$("#msg_history").append(messageHTML);
+
+	//$("#msg_history").append(messageHTML);
 
 
 }
@@ -59,11 +61,15 @@ function addMessage(message){
 function getMessages(conversation_id){
 	$.get('/messages?id=9&con_id='+conversation_id, function(data) {
 
+		var messageHTML = "";
+
 		for (i in data){
-			addMessage(data[i]);
+			messageHTML += addMessage(data[i]);
 		}
+		$("#msg_history").html(messageHTML);
 
 	});
+
 }
 
 
