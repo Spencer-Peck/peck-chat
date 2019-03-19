@@ -5,6 +5,7 @@ var appDir = path.dirname(require.main.filename);
 require('dotenv').config();
 
 const conversationController = require("./controllers/conversationController.js");
+const messageController = require("./controllers/messageController.js");
 
 const PORT = process.env.PORT || 5000;
 
@@ -25,6 +26,7 @@ app.get('/', (req, res) => {
 });
 
 app.get("/conversations", conversationController.getConversations);
+app.get("/messages", messageController.getMessages);
 app.get("/conversationNames", conversationController.getConversationNames);
 
 // start the server listening

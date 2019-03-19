@@ -28,6 +28,8 @@ function getConversationsFromDb(id, callback) {
 	});
 }
 
+
+
 function getConversationNamesFromDb(user_id, conversation_id, other_id, callback) {
 		var sql = "SELECT  DISTINCT users.first_name, users.id FROM conversations, participants, users WHERE participants.conversation_id = $2::int"
 		sql += " AND users.id = participants.user_id AND users.id != $1::int AND users.id != $3::int";
