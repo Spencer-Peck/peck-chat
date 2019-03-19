@@ -46,7 +46,7 @@ function addMessage(message){
     }
 
 
-	$("#inbox_chat").append(messageHTML);
+	$("#msg_history").append(messageHTML);
 
 
 }
