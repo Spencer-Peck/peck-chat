@@ -33,6 +33,10 @@ function getConversations(){
 
 
 function addMessage(message){
+	if (message.avatar_url == null)
+	{
+		message.avatar_url = "https://connect.protel.net/files/Source/demodashboard/dist/img/def_face.jpg";
+	}
 	var messageHTML;
 	var time = "11:01 AM    |    June 9";
 
