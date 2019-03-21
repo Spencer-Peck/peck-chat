@@ -59,7 +59,7 @@ app.set('view engine', 'ejs');
 
 app.route('/signup')
     .get(sessionChecker, (req, res) => {
-        res.sendFile('signup.html');
+        res.sendFile(__dirname + '/public/signup.html');
     })
     .post((req, res) => {
         User.create({
@@ -78,7 +78,7 @@ app.route('/signup')
 
     app.route('/login')
     .get(sessionChecker, (req, res) => {
-        res.sendFile('login.html');
+        res.sendFile(__dirname + '/public/login.html');
     })
     .post((req, res) => {
         var username = req.body.username,
