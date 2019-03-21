@@ -127,7 +127,7 @@ app.get('/logout', (req, res) => {
 
 app.get("/conversations", authenticate, function(req, res){
 	conversationController.getConversations();
-} 
+}); 
 app.get("/messages", messageController.getMessages);
 app.get("/conversationNames", conversationController.getConversationNames);
 
