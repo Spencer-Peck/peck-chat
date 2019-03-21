@@ -10,7 +10,7 @@ function setup(){
 
 //This is to add active class when a conversation is clicked
 $(function() {                       //run when the DOM is ready
-  $(".clickable").click(function() {  //use a class, since your ID gets mangled
+  $(".active_con").click(function() {  //use a class, since your ID gets mangled
     $(this).addClass("active_chat");      //add the class to the clicked element
   });
 });
