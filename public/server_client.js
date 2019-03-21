@@ -11,6 +11,7 @@ function setup(){
 function getUserInfo(){
 	$.get('/userInfo', function(data) {
 		//user_id = data.id;
+		$("#inbox_chat").html(data.First_name + ' ' + data.last_name + '&nbsp;<i class="fas fa-user-circle" style="font-size:16px;"></i>');
 		console.log(data);
 
 	});
@@ -97,7 +98,7 @@ $(function(){
 
 	socket.on("update_conversations", (data) => {
 		//chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>");
-		$.get('/conversations?id=9', (data) => {
+		$.get('/conversations', (data) => {
 			data.each(addMessages);
 		});
 	});

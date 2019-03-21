@@ -77,6 +77,7 @@ app.route('/signup')
         })
         .then(user => {
             req.session.user = user.dataValues;
+            delete req.session.user.password;
             //res.locals.user = user;
             res.redirect('/dashboard');
         })
