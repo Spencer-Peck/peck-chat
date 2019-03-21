@@ -5,12 +5,13 @@ var user_id;
 function setup(){
 	getConversations();
 	//getMessages();
-	getUserInfo()
+	getUserInfo();
 }
 
 function getUserInfo(){
 	$.get('/userInfo', function(data) {
-		user_id = data.id;
+		//user_id = data.id;
+		console.log(data);
 
 	});
 
