@@ -1,9 +1,18 @@
 
 
 var PORT;
+var user_id;
 function setup(){
 	getConversations();
 	//getMessages();
+}
+
+function getUserInfo(){
+	$.get('/userInfo', function(data) {
+		user_id = data.id;
+
+	});
+
 }
 
 
@@ -22,7 +31,7 @@ function addConversation(conversation){
 }
 
 function getConversations(){
-	var user_id = <%- user.id %>;
+	//var user_id = <%- user.id %>;
 	$.get('/conversations?id='+user_id, function(data) {
 
 		for (i in data){
