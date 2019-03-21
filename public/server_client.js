@@ -89,7 +89,7 @@ function getMessages(conversation_id){
 		}
 		$("#msg_history").html(messageHTML);
 		let active = document.getElementsByClassName("active_chat");
-		if (active != null)
+		if (active[0] != null)
 			active[0].classList.remove("active_chat");
 		document.getElementById(conversation_id).classList.add("active_chat");
 
