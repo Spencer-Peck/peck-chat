@@ -35,7 +35,7 @@ function addConversation(conversation){
 	}
 	date = conversation._date;
 	
-	$("#inbox_chat").append('<div class="chat_list active_con" onclick="getMessages('+conversation.conversation_id+')"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+ " " + conversation.last_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
+	$("#inbox_chat").append('<div class="chat_list" id="'+conversation.conversation_id+'" onclick="getMessages('+conversation.conversation_id+')"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+ " " + conversation.last_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
 
 
 }
@@ -88,6 +88,7 @@ function getMessages(conversation_id){
 			messageHTML += addMessage(data[i]);
 		}
 		$("#msg_history").html(messageHTML);
+		document.getElementById(conversation_id).classList.add("active_chat");
 
 	});
 
