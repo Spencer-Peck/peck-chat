@@ -11,7 +11,7 @@ function setup(){
 function getUserInfo(){
 	$.get('/userInfo', function(data) {
 		//user_id = data.id;
-		$("#inbox_chat").html(data.First_name + ' ' + data.last_name + '&nbsp;<i class="fas fa-user-circle" style="font-size:16px;"></i>');
+		$("#header_name").html(data.first_name + ' ' + data.last_name + '&nbsp;<i class="fas fa-user-circle" style="font-size:16px;"></i>');
 		console.log(data);
 
 	});
