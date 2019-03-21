@@ -11,7 +11,7 @@ function setup(){
 function getUserInfo(){
 	$.get('/userInfo', function(data) {
 		//user_id = data.id;
-		$("#header_name").html('<h1>'+data.first_name + ' ' + data.last_name + '</h1>&nbsp;<i class="fas fa-user-circle" style="font-size:16px;"></i>');
+		$("#header_name").html(data.first_name + ' ' + data.last_name + '&nbsp;<i class="fas fa-user-circle" style="font-size:16px;"></i>');
 		console.log(data);
 
 	});
