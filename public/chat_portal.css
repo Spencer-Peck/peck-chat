@@ -98,6 +98,10 @@
   border-radius: 50%;
 }
 
+.navbar-nav {
+  display: initial;
+}
+
 .header_img {
   float: left;
   width: 5%;
