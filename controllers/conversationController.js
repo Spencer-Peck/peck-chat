@@ -2,7 +2,8 @@ const conversationModels = require("../models/conversationModels.js");
 
 
 function getConversations(request, response) {
-	var id = request.query.id;
+	//var id = request.query.id;
+	var id = request.session.user.id;
 	//console.log(session.user.id);
 	console.log("We have made it to the controller");
 
