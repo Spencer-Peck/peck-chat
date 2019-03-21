@@ -126,7 +126,7 @@ app.get('/logout', (req, res) => {
 
 
 app.get("/conversations", authenticate, function(req, res){
-	//conversationController.getConversations;
+	conversationController.getConversations();
 	console.log("authenticated");
 }); 
 app.get("/messages", messageController.getMessages);
