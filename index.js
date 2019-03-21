@@ -125,8 +125,8 @@ app.get('/logout', (req, res) => {
 });
 
 app.get("/userInfo", authenticate, (req, res) => {
-	console.log(req.session.user.id);
-	//res.json(session.user);
+	//console.log(req.session.user.id);
+	res.json(req.session.user);
 });
 app.get("/conversations", authenticate, conversationController.getConversations, (req, res) => {
 	console.log("authenticated");
