@@ -1,47 +1,47 @@
+
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Login Here</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    </head>
-    <body class="container">
-        <div class="page-header">
-            <h1>Simple Auth-System</h1>
-        </div>
+<head>
+  <title>Login</title>
+  <style type="text/css"></style>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="path/to/jquery.js"></script>
+<script type="text/javascript" src="path/to/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="path/to/bootstrap-confirmation.js"></script> 
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/signup">Sign Up</a></li>
-                        <li><a href="/dashboard">Dashboard</a></li>
-                    </ul>
+</head>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/login">Log In</a></li>
-                        <li><a href="/logout">Log Out</a></li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="">Score Keeper</a>
+  
+  <!-- Links -->
+</nav>
 
-        <div class="container row">
-            <div class="jumbotron col-sm-4 pull-center">
-                <form action="/login" method="post">
-                    <div>
-                        <label>Username:</label>
-                        <input type="text" name="username"/>
-                    </div>
-                    <div>
-                        <label>Password:</label>
-                        <input type="password" name="password"/>
-                    </div>
-                    <div>
-                        <input class="btn btn-primary" type="submit" value="Log In"/>
-                    </div>
-                </form>                  
-            </div>          
-        </div>
-    </body>
+
+<div class="container">
+  <h1>Login</h1>
+  <br>
+<form action="/login" method="post">
+  <div class="form-group">
+    <label for="username">User Name</label>
+    <input type="text" class="form-control" name ="username" id="username" placeholder="Enter username">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+<br>
+<a href="/signup">Create Account</a>
+</div>
+
+</body>
 </html>
