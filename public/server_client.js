@@ -5,7 +5,7 @@ var user_id;
 function setup(){
 	getConversations();
 	//getMessages();
-	//getUserInfo()
+	getUserInfo()
 }
 
 function getUserInfo(){
