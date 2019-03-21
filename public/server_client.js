@@ -22,7 +22,7 @@ function addConversation(conversation){
 }
 
 function getConversations(){
-	$.get('/conversations?id=9', function(data) {
+	$.get('/conversations?id='+user.id, function(data) {
 
 		for (i in data){
 			addConversation(data[i]);
