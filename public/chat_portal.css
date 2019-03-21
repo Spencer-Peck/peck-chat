@@ -99,12 +99,13 @@
 }
 
 .header_img {
-  width: 3%;
+  float: left;
+  width: 5%;
   border-radius: 50%;
 }
 
 .header_img img {
-  width: 50%;
+  width: 100%;
   border-radius: 50%;
 }
 
