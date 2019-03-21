@@ -33,7 +33,7 @@ function addConversation(conversation){
 
 function getConversations(){
 	//var user_id = <%- user.id %>;
-	$.get('/conversations?id=9', function(data) {
+	$.get('/conversations', function(data) {
 
 		for (i in data){
 			addConversation(data[i]);
@@ -71,7 +71,7 @@ function addMessage(message){
 
 
 function getMessages(conversation_id){
-	$.get('/messages?id=9&con_id='+conversation_id, function(data) {
+	$.get('/messages?con_id='+conversation_id, function(data) {
 
 		var messageHTML = "";
 

@@ -1,7 +1,7 @@
 const messageModels = require("../models/messageModels.js");
 
 function getMessages(request, response) {
-	var id = request.query.id;
+	var id = request.session.user.id;
 	var con_id = request.query.con_id;
 
 
