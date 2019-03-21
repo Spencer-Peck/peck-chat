@@ -128,8 +128,8 @@ app.get('/logout', (req, res) => {
 app.get("/conversations", authenticate, conversationController.getConversations, (req, res) => {
 	console.log("authenticated");
 }); 
-app.get("/messages", messageController.getMessages);
-app.get("/conversationNames", conversationController.getConversationNames);
+app.get("/messages", authenticate, messageController.getMessages);
+app.get("/conversationNames", authenticate, conversationController.getConversationNames);
 
 // start the server listening
 server = app.listen(PORT, function() {
