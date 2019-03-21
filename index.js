@@ -69,6 +69,7 @@ app.route('/signup')
         })
         .then(user => {
             req.session.user = user.dataValues;
+            res.locals.user = user;
             res.redirect('/dashboard');
         })
         .catch(error => {
@@ -91,6 +92,7 @@ app.route('/signup')
                 res.redirect('/login');
             } else {
                 req.session.user = user.dataValues;
+                res.locals.user = user;
                 res.redirect('/dashboard');
             }
         });
@@ -98,6 +100,7 @@ app.route('/signup')
 
 app.get('/dashboard', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
+    	res.locals.user = 
         res.render('chat_portal');
     } else {
         res.redirect('/login');
