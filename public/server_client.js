@@ -22,7 +22,8 @@ function addConversation(conversation){
 }
 
 function getConversations(){
-	$.get('/conversations?id='+user.id, function(data) {
+	var user_id = <%- user.id %>;
+	$.get('/conversations?id='+user_id, function(data) {
 
 		for (i in data){
 			addConversation(data[i]);
