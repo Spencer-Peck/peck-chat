@@ -11,7 +11,7 @@ function setup(){
 function getUserInfo(){
 	$.get('/userInfo', function(data) {
 		//user_id = data.id;
-		$("#header_name").html(data.first_name + ' ' + data.last_name + '&nbsp;<div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div>');
+		$("#header_name").html(data.first_name + ' ' + data.last_name + '&nbsp;<div class="chat_img"> <img src="'+data.avatar_url+'" alt=""> </div>');
 		console.log(data);
 
 	});
