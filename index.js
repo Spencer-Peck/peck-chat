@@ -49,6 +49,14 @@ var sessionChecker = (req, res, next) => {
     }    
 };
 
+var authenticate = (req, res, next) => {
+    if (req.session.user && req.cookies.user_sid) {
+        next();
+    } else {
+        res.redirect('/login');
+    }    
+};
+
 app.get('/', sessionChecker, (req, res) => {
     res.redirect('/login');
 });
@@ -69,7 +77,7 @@ app.route('/signup')
         })
         .then(user => {
             req.session.user = user.dataValues;
-            res.locals.user = user;
+            //res.locals.user = user;
             res.redirect('/dashboard');
         })
         .catch(error => {
@@ -92,7 +100,7 @@ app.route('/signup')
                 res.redirect('/login');
             } else {
                 req.session.user = user.dataValues;
-                res.locals.user = user;
+                //res.locals.user = user;
                 res.redirect('/dashboard');
             }
         });
@@ -100,7 +108,7 @@ app.route('/signup')
 
 app.get('/dashboard', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
-    	res.locals.user = 
+    	//res.locals.user = 
         res.render('chat_portal');
     } else {
         res.redirect('/login');
@@ -117,7 +125,9 @@ app.get('/logout', (req, res) => {
 });
 
 
-app.get("/conversations", conversationController.getConversations);
+app.get("/conversations", authenticate, function(req, res){
+	conversationController.getConversations();
+} 
 app.get("/messages", messageController.getMessages);
 app.get("/conversationNames", conversationController.getConversationNames);
 
