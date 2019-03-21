@@ -38,6 +38,7 @@ function addMessage(message){
 		message.avatar_url = "https://connect.protel.net/files/Source/demodashboard/dist/img/def_face.jpg";
 	}
 	var messageHTML;
+	//var time = "11:01 AM    |    June 9";
 	var time = message._date;
 
 	if (!message.mine){
