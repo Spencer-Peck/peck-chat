@@ -1,6 +1,6 @@
   const { Pool } = require("pg");
 
-  const connectionString = process.env.DATABASE_URL || "postgres://peckchatuser:teampeck@localhost:5432/PeckChat";
+  const connectionString = process.env.DATABASE_URL || "postgres://gdcuymnjnlyqxg:48e0bbbce9430df86ec167f17a46cb5d308d422981c9f4a791034d73a8952ccd@ec2-54-197-232-203.compute-1.amazonaws.com:5432/d81t8isvnc8kbu?ssl=true";
   const pool = new Pool({connectionString: connectionString});
 
 
