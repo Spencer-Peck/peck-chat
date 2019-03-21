@@ -8,6 +8,13 @@ function setup(){
 	getUserInfo();
 }
 
+//This is to add active class when a conversation is clicked
+$(function() {                       //run when the DOM is ready
+  $(".clickable").click(function() {  //use a class, since your ID gets mangled
+    $(this).addClass("active_chat");      //add the class to the clicked element
+  });
+});
+
 function getUserInfo(){
 	$.get('/userInfo', function(data) {
 		//user_id = data.id;
@@ -28,7 +35,7 @@ function addConversation(conversation){
 	}
 	date = conversation._date;
 	
-	$("#inbox_chat").append('<div class="chat_list" onclick="getMessages('+conversation.conversation_id+')"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+ " " + conversation.last_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
+	$("#inbox_chat").append('<div class="chat_list active_con" onclick="getMessages('+conversation.conversation_id+')"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+ " " + conversation.last_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
 
 
 }
