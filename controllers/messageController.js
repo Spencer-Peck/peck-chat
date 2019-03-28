@@ -21,7 +21,36 @@ function getMessages(request, response) {
 
 }
 
+function sendMessage(request, response) {
+	var id = request.session.user.id;
+	var con_id = request.body.con_id;
+	var content = request.body.content;
+
+	console.log("this is id: " + id);
+	console.log("this is con id: " + con_id);
+	console.log("this is content: " + content);
+
+	console.log(con_id);
+
+
+	messageModels.sendMessageToDb(id, con_id, content, function(error, result) {
+
+
+		//var messages = (result);
+		//var dateFormat = require('dateformat');
+
+
+		console.log(result);
+
+	    response.json(result);
+
+	});
+
+
+}
+
 module.exports = {
-	getMessages: getMessages
+	getMessages: getMessages,
+	sendMessage: sendMessage
 	
 };

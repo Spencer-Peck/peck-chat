@@ -58,10 +58,9 @@
     </div>
     <div class="type_msg">
     <div class="input_msg_write">
-      <form action="/messages" method="post">
-      <input type="text" class="write_msg" placeholder="Type a message" />
-      <button class="msg_send_btn" type="submit" ><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-    </form>
+        <input type="hidden" id="send_con" value="foo" id="con_id" name="con_id" />
+      <input type="text" class="write_msg" placeholder="Type a message" id= "message" name="content" />
+      <button class="msg_send_btn" type="button" id="send_message" ><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
     </div>
     </div>
   </div>

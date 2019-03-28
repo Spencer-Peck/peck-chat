@@ -133,6 +133,7 @@ app.get("/conversations", authenticate, conversationController.getConversations,
 	console.log("authenticated");
 }); 
 app.get("/messages", authenticate, messageController.getMessages);
+app.post("/messages", authenticate, messageController.sendMessage);
 app.get("/conversationNames", authenticate, conversationController.getConversationNames);
 
 // start the server listening

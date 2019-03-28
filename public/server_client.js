@@ -2,6 +2,7 @@
 
 var PORT;
 var user_id;
+var conv_id;
 function setup(){
 	getConversations();
 	//getMessages();
@@ -26,7 +27,7 @@ function getUserInfo(){
 }
 
 
-function addConversation(conversation){
+function addConversation(conversation, i, update){
 	console.log(conversation);
 	if (conversation.avatar_url == null)
 	{
@@ -35,18 +36,28 @@ function addConversation(conversation){
 	}
 	date = conversation._date;
 	
-	$("#inbox_chat").append('<div class="chat_list" id="'+conversation.conversation_id+'" onclick="getMessages('+conversation.conversation_id+')"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+ " " + conversation.last_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
+	//$("#inbox_chat").append('<div class="chat_list" id="'+conversation.conversation_id+'" onclick="getMessages('+conversation.conversation_id+')"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+ " " + conversation.last_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>');
 
+	var conHTML = '<div class="chat_list" id="'+conversation.conversation_id+'" onclick="getMessages('+conversation.conversation_id+')"><div class="chat_people"><div class="chat_img"> <img src="'+conversation.avatar_url+'" alt=""> </div><div class="chat_ib"><h5>'+conversation.first_name+ " " + conversation.last_name+'<span class="chat_date">'+date+'</span></h5><p>'+conversation.content+'</p></div></div></div>'
+	if (i == 0 && !update)
+	{
+		//getMessages(conversation.conversation_id);
+		conv_id = conversation.conversation_id;
+	}
+	return conHTML;
 
 }
 
-function getConversations(){
+function getConversations(update){
 	//var user_id = <%- user.id %>;
 	$.get('/conversations', function(data) {
+		var conHTML = "";
 
 		for (i in data){
-			addConversation(data[i]);
+			conHTML += addConversation(data[i], i, update);
 		}
+		$("#inbox_chat").html(conHTML);
+		getMessages(conv_id);
 
 	});
 }
@@ -92,6 +103,9 @@ function getMessages(conversation_id){
 		if (active[0] != null)
 			active[0].classList.remove("active_chat");
 		document.getElementById(conversation_id).classList.add("active_chat");
+		document.getElementById("send_con").value = conversation_id;
+		$("#msg_history").scrollTop($("#msg_history")[0].scrollHeight);
+
 
 	});
 
@@ -101,6 +115,26 @@ function getMessages(conversation_id){
 $(function(){
 	//make connection
 	//var socket = io.();
+	var send_message = $("#send_message");
+
+	send_message.click(function(){
+	console.log("was clicked");
+	var message = $("#message");
+	var id = $("#send_con");
+	conv_id = id.val();
+	var data = {
+		con_id: id.val(),
+		content: message.val()
+
+	};
+	$.post('/messages', data, function(data) {
+		getConversations(true);
+
+	});
+
+});
+
+
 
 	var socket = io();
 	socket.connect('https://tranquil-rocky-mountain-92476.herokuapp.com/', { autoConnect: true});

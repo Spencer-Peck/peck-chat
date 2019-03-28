@@ -25,6 +25,40 @@
 	});
 }
 
+function sendMessageToDb(id, con_id, content, callback) {
+	var sql = "INSERT INTO messages (content, user_id, conversation_id) VALUES ($3, $1, $2);"
+	var params = [id, con_id, content];
+	pool.query(sql, params, function(err, result) {
+		sql = "UPDATE conversations FROM (SELECT MAX(created_at) AS latest, MAX(id) as id, conversation_id FROM messages WHERE conversation_id = $2 GROUP BY conversation_id)x WHERE conversations.id = $2;"
+		pool.query(sql, params, function(err, result) {
+
+		// If an error occurred...
+		if (err) {
+			console.log("Error in query: ")
+			console.log(err);
+			//pool.end();
+			//callback(err, null);
+		}
+
+		//console.log("Found result: " + JSON.stringify(result.rows));
+		//pool.end();
+		//callback(null, null);
+	});
+		// If an error occurred...
+		if (err) {
+			console.log("Error in query: ")
+			console.log(err);
+			//pool.end();
+			callback(err, null);
+		}
+
+		//console.log("Found result: " + JSON.stringify(result.rows));
+		//pool.end();
+		callback(null, null);
+	});
+}
+
 module.exports = {
-	getMessagesFromDb: getMessagesFromDb
+	getMessagesFromDb: getMessagesFromDb,
+	sendMessageToDb: sendMessageToDb
 };
